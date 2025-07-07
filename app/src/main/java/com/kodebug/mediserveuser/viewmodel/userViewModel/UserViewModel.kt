@@ -8,7 +8,6 @@ import com.kodebug.mediserveuser.data.repository.userRepo.UserRepository
 import com.kodebug.mediserveuser.presentation.navigation.Routes
 import com.kodebug.mediserveuser.viewmodel.userViewModel.stateAndEvent.CreateUiEvent
 import com.kodebug.mediserveuser.viewmodel.userViewModel.stateAndEvent.CreateUiState
-import com.kodebug.mediserveuser.viewmodel.userViewModel.stateAndEvent.UserState
 import com.kodebug.mediserveuser.viewmodel.userViewModel.stateAndEvent.LoginUiEvent
 import com.kodebug.mediserveuser.viewmodel.userViewModel.stateAndEvent.LoginUiState
 import dagger.hilt.android.lifecycle.HiltViewModel

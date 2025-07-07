@@ -1,6 +1,6 @@
 package com.kodebug.mediserveuser.data.api
 
-import com.google.gson.annotations.SerializedName
+
 import com.kodebug.mediserveuser.data.model.userModel.CreateUserModel
 import com.kodebug.mediserveuser.data.model.userModel.LoginResponse
 import com.kodebug.mediserveuser.data.model.userModel.SpecificUserResponse

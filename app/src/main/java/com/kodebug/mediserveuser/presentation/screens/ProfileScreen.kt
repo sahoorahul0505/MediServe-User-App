@@ -26,7 +26,6 @@ import androidx.navigation.NavController
 import com.kodebug.mediserveuser.presentation.components.ProfileCard
 import com.kodebug.mediserveuser.presentation.navigation.Routes
 import com.kodebug.mediserveuser.viewmodel.userViewModel.ProfileViewModel
-import com.kodebug.mediserveuser.viewmodel.userViewModel.UserViewModel
 import com.kodebug.mediserveuser.viewmodel.userViewModel.stateAndEvent.UserUiEvent
 
 @Composable
