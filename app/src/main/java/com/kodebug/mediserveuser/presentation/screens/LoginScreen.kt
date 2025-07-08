@@ -28,14 +28,14 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.kodebug.mediserveuser.presentation.navigation.Routes
-import com.kodebug.mediserveuser.viewmodel.userViewModel.UserViewModel
+import com.kodebug.mediserveuser.viewmodel.userViewModel.AuthViewModel
 import com.kodebug.mediserveuser.viewmodel.userViewModel.stateAndEvent.LoginUiEvent
 
 @Composable
 fun LoginScreen(
     modifier: Modifier = Modifier,
     navController: NavController,
-    viewModel: UserViewModel = hiltViewModel()
+    viewModel: AuthViewModel = hiltViewModel()
 ) {
 
     val uiState by viewModel.loginUiState.collectAsState()
@@ -46,7 +46,11 @@ fun LoginScreen(
     LaunchedEffect(Unit) {
         viewModel.loginUiEvent.collect { event ->
             when (event) {
-                is LoginUiEvent.Navigate -> navController.navigate(event.route)
+                is LoginUiEvent.Navigate -> navController.navigate(event.route){
+                    popUpTo(Routes.LoginScreenRoute){
+                        inclusive = true
+                    }
+                }
                 is LoginUiEvent.ShowToast -> Toast.makeText(context, event.message, Toast.LENGTH_SHORT).show()
             }
         }

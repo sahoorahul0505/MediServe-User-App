@@ -35,6 +35,7 @@ fun ProfileScreen(
     viewModel: ProfileViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.userState.collectAsState()
+
     val context = LocalContext.current
 
     LaunchedEffect(Unit) {
@@ -75,6 +76,9 @@ fun ProfileScreen(
                                 popUpTo(Routes.ProfileScreenRoute) {
                                     inclusive = true
                                 }
+                                popUpTo(Routes.HomeScreenRoute){
+                                    inclusive = true
+                                }
                             }
                         }
                     ) {
@@ -87,6 +91,14 @@ fun ProfileScreen(
                         }
                     ) {
                         Text(text = "LogOut")
+                    }
+                    Spacer(modifier = modifier.height(20.dp))
+                    Button(
+                        onClick = {
+                            navController.navigate(Routes.UpdateUserScreenRoute)
+                        }
+                    ) {
+                        Text(text = "Edit Profile")
                     }
                 }
             }

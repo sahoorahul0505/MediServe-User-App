@@ -20,7 +20,7 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-class UserViewModel @Inject constructor(
+class AuthViewModel @Inject constructor(
     private val userRepository: UserRepository,
     private val dataStore: DataStoreManager
 ) : ViewModel() {

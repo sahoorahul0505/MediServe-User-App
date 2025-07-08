@@ -23,4 +23,7 @@ sealed class Routes {
 
     @Serializable
     object ProfileScreenRoute : Routes()
+
+    @Serializable
+    object UpdateUserScreenRoute : Routes()
 }

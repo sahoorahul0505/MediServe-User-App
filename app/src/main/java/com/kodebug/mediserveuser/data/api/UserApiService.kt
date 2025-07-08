@@ -4,9 +4,11 @@ package com.kodebug.mediserveuser.data.api
 import com.kodebug.mediserveuser.data.model.userModel.CreateUserModel
 import com.kodebug.mediserveuser.data.model.userModel.LoginResponse
 import com.kodebug.mediserveuser.data.model.userModel.SpecificUserResponse
+import com.kodebug.mediserveuser.data.model.userModel.UpdateUserResponse
 import retrofit2.Response
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.PATCH
 import retrofit2.http.POST
 
 interface UserApiService {
@@ -36,5 +38,18 @@ interface UserApiService {
         @Field("email") email : String,
         @Field("password") password : String
     ) : Response<LoginResponse>
+
+    @FormUrlEncoded
+    @PATCH("updateUserDetails")
+    suspend fun updateUser(
+        @Field("user_id") userId : String,
+        @Field("name") name : String,
+        @Field("phone_number") phoneNumber : String,
+        @Field("email") email : String,
+        @Field("address") address : String,
+        @Field("pinCode") pinCode : String,
+        @Field("password") password : String
+        ) : Response<UpdateUserResponse>
+
 
 }

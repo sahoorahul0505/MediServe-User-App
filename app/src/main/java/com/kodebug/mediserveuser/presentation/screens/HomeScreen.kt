@@ -31,11 +31,7 @@ fun HomeScreen(modifier: Modifier = Modifier, navController: NavController) {
             Spacer(modifier = modifier.height(30.dp))
             Button(
                 onClick = {
-                    navController.navigate(Routes.ProfileScreenRoute){
-                        popUpTo(Routes.HomeScreenRoute){
-                            inclusive = true
-                        }
-                    }
+                    navController.navigate(Routes.ProfileScreenRoute)
                 }
             ) {
                 Text(text = "Profile Page")

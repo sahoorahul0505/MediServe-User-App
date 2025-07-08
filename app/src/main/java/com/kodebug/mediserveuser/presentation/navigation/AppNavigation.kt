@@ -10,6 +10,7 @@ import com.kodebug.mediserveuser.presentation.screens.LoginScreen
 import com.kodebug.mediserveuser.presentation.screens.ProfileScreen
 import com.kodebug.mediserveuser.presentation.screens.RegisterScreen
 import com.kodebug.mediserveuser.presentation.screens.SplashScreen
+import com.kodebug.mediserveuser.presentation.screens.UpdateUserScreen
 import com.kodebug.mediserveuser.presentation.screens.WaitingScreen
 
 @Composable
@@ -42,6 +43,10 @@ fun AppNavigation() {
 
         composable<Routes.ProfileScreenRoute> {
             ProfileScreen(navController = navController)
+        }
+
+        composable<Routes.UpdateUserScreenRoute> {
+            UpdateUserScreen(navController = navController)
         }
     }
 }

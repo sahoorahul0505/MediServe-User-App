@@ -19,11 +19,11 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.kodebug.mediserveuser.presentation.navigation.Routes
-import com.kodebug.mediserveuser.viewmodel.userViewModel.UserViewModel
+import com.kodebug.mediserveuser.viewmodel.userViewModel.AuthViewModel
 import com.kodebug.mediserveuser.viewmodel.userViewModel.stateAndEvent.LoginUiEvent
 
 @Composable
-fun WaitingScreen(modifier: Modifier = Modifier, userId: String, navController: NavController, viewModel: UserViewModel = hiltViewModel()) {
+fun WaitingScreen(modifier: Modifier = Modifier, userId: String, navController: NavController, viewModel: AuthViewModel = hiltViewModel()) {
 
     val context = LocalContext.current
 

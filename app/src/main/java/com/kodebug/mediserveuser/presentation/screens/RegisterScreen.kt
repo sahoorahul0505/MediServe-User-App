@@ -28,14 +28,14 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.kodebug.mediserveuser.presentation.navigation.Routes
-import com.kodebug.mediserveuser.viewmodel.userViewModel.UserViewModel
+import com.kodebug.mediserveuser.viewmodel.userViewModel.AuthViewModel
 import com.kodebug.mediserveuser.viewmodel.userViewModel.stateAndEvent.CreateUiEvent
 
 @Composable
 fun RegisterScreen(
     modifier: Modifier = Modifier,
     navController: NavController,
-    viewModel: UserViewModel = hiltViewModel()
+    viewModel: AuthViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.createUiState.collectAsState()
     val context = LocalContext.current

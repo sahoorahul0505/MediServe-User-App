@@ -5,6 +5,8 @@ import androidx.lifecycle.viewModelScope
 import com.kodebug.mediserveuser.data.datastore.DataStoreManager
 import com.kodebug.mediserveuser.data.repository.userRepo.UserRepository
 import com.kodebug.mediserveuser.presentation.navigation.Routes
+import com.kodebug.mediserveuser.viewmodel.userViewModel.stateAndEvent.UpdateUserState
+import com.kodebug.mediserveuser.viewmodel.userViewModel.stateAndEvent.UpdateUserUiEvent
 import com.kodebug.mediserveuser.viewmodel.userViewModel.stateAndEvent.UserState
 import com.kodebug.mediserveuser.viewmodel.userViewModel.stateAndEvent.UserUiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -26,7 +28,7 @@ class ProfileViewModel @Inject constructor(
     val userState: StateFlow<UserState> = _userState
 
     private val _userUiEvent = MutableSharedFlow<UserUiEvent>()
-    val userUiEvent : SharedFlow<UserUiEvent> = _userUiEvent
+    val userUiEvent: SharedFlow<UserUiEvent> = _userUiEvent
 
     init {
         viewModelScope.launch {
@@ -39,7 +41,7 @@ class ProfileViewModel @Inject constructor(
         }
     }
 
-    private fun fetchUserProfile(userId: String){
+    private fun fetchUserProfile(userId: String) {
         viewModelScope.launch {
             _userState.value = userState.value.copy(isLoading = true)
             val userResult = userRepository.getSpecificUser(userId)
@@ -54,7 +56,9 @@ class ProfileViewModel @Inject constructor(
         }
     }
 
-    fun logOut(){
+
+
+    fun logOut() {
         viewModelScope.launch {
             dataStore.clearUserData()
             _userUiEvent.emit(UserUiEvent.ShowToast(message = "Logged out successfully"))
