@@ -41,7 +41,14 @@ fun ProfileScreen(
     LaunchedEffect(Unit) {
         viewModel.userUiEvent.collect { event ->
             when (event) {
-                is UserUiEvent.Navigate -> navController.navigate(event.route)
+                is UserUiEvent.Navigate -> navController.navigate(event.route){
+                    popUpTo(Routes.ProfileScreenRoute){
+                        inclusive = true
+                    }
+                    popUpTo(Routes.HomeScreenRoute){
+                        inclusive = true
+                    }
+                }
                 is UserUiEvent.ShowToast -> Toast.makeText(context, event.message, Toast.LENGTH_SHORT).show()
             }
         }
